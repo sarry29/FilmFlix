@@ -2,9 +2,22 @@
 FilmFlix is a website that recommends movies as per user taste
 
 <h3>Objective</h3> 
-FilmFlix is website which recommend on the basis 
+<ul>
+     <li>FilmFlix is website which recommend movie on the basis of genre and year </li>
+      <li>Also,the website recommend movie on basis of previously watched movie by user</li>
+</ul>
 
 ***
+
+<b>Technology Used:</b> 
+<ol>
+<li> Python </li>
+<li> HTML,CSS,BootStrap </li>
+<li> Machine Learning </li>
+<li> Flask </li>
+
+***
+      
 <h3>Screenshots</h3>
 
 <div class="row">
