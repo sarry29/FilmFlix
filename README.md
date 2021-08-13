@@ -3,8 +3,8 @@ FilmFlix is a website that recommends movies as per user taste
 
 <h3>Objective</h3> 
 <ul>
-     <li>FilmFlix is website which recommend movie on the basis of genre and year </li>
-      <li>Also,the website recommend movie on basis of previously watched movie by user</li>
+     <li>FilmFlix is a website that recommends movies based on genre and year</li>
+      <li>Also, the website recommends movies on basis of the previously watched movie by the user</li>
 </ul>
 
 ***
