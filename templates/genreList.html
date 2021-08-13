@@ -1,0 +1,141 @@
+<html>
+<head>
+<title> FilmFlix </title>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Caveat:wght@500&family=Shadows+Into+Light&display=swap');
+    
+    .mydiv {
+    /* position: relative; */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: 1000;
+    }
+
+    @keyframes example {
+    0%   {color:#33ccff;}
+    25%  {color:rgb(108, 226, 167);}
+    50%  {color:#f0c5da;}
+    75%  {color:rgb(135, 100, 139);}
+    100% {color:#33ccff;}
+    }
+</style>
+
+</head>
+<body style="background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);">
+    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="box-shadow:0 5px 60px #000000;background-color: #000000;">
+    <div class="container-fluid">
+       <a class="navbar-brand mydiv"  href="/" style="font-size: 3em;margin-top: 0.1em;font-family:'Style Script', cursive;"><b> FilmFlix</b></a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active mydiv" aria-current="page" href="/" style="margin-left:1em;font-size: 2em;font-family: 'Acme', sans-serif;">Home</a>
+            </li>
+          </ul>
+          
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active mydiv" aria-current="page" href="{{ url_for('genreRec') }} " style="margin-left:0em;font-size: 2em;font-family: 'Acme', sans-serif;">Genre</a>
+          </li>
+        </ul>
+        
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active mydiv" aria-current="page" href="{{ url_for('movieRec') }}" style="margin-right: 25em;font-size: 2em;font-family: 'Acme', sans-serif;">Movie</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <div>
+        <h2 class="display-5 text-center mt-3">Recommend Movies On Basis of Genre</h2>
+        <h3 class="display-6 text-center">GENRE : {{ genreFind }}  YEAR : {{ yearToFind }}</h2>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">TITLE</th>
+              <th scope="col">RATING</th>
+              <th scope="col">YEAR</th>
+              <th scope="col">MOVIE POSTER</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            
+            {%  for i in range(10) %}
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <td ><b>{{ title[i] }}</b> <br><br> {{ castDetails[i] }} </td>
+                <td >{{ rating[i] }}</td>
+                <td >{{ year[i] }}</td>
+                <td ><img src ="{{ imageUrl[i] }}" alt="{{ title[i] }}"></td>
+            </tr>
+            {% endfor %}   
+          </tbody>
+        </table>
+
+        <a href="/genreRec" >
+          <p class="text-center" >
+            <button class="btn btn-primary" style="margin-top:3em;">GO BACK</button>
+          </p>
+        </a>
+    </div>
+      
+
+	  <footer class="text-center text-white" style="background-color: #f1f1f1;margin-top:4em;">
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <section class="mb-4">
+            
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <div class="container">
+                <a  href="https://www.linkedin.com/in/rabdeep-singh-kharbanda-35616b206/" class="fa fa-linkedin" style="margin-right: 1em;font-size: larger;" target="_blank">
+                  </a>
+                  
+                  <a href="https://www.github.com/sarry29" style="margin-right: 1em;font-size: larger;" class="fa fa-github" target="_blank">
+                  </a>
+
+              <a href="https://twitter.com/RabdeepSinghKh1" class="fa fa-twitter" style="margin-right: 1em;font-size: larger;" target="_blank">
+                
+              </a>
+              
+              <a href="https://www.facebook.com/harrysingh.kharbanda" class="fa fa-facebook" style="margin-right: 1em;font-size: larger;" target="_blank">
+                </a>
+
+              <a href="https://instagram.com/sarry_29" class="fa fa-instagram" style="margin-right: 1em;font-size: larger;" target="_blank">
+                
+              </a>
+            
+            </div>
+            </section>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2021 Copyright: All right reserve to developer team 
+          <br><b>Team FilmFlix</b>
+        </div>
+        <!-- Copyright -->
+      </footer>
+       <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
