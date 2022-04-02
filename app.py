@@ -4,11 +4,13 @@ import pandas as pd
 from imdb import IMDb
 
 
-data = pickle.load(open('moviesOriginal.pkl','rb'))
-genres = pickle.load(open('movies.pkl','rb'))
+data = pickle.load(open('Model/moviesOriginal.pkl','rb'))
+genres = pickle.load(open('Model/movies.pkl','rb'))
 
-filmList = list(genres.columns)
+
 genreList = list(genres.index[1:])
+print(genres.index[1:]);
+filmList = list(genres.columns)
 
 # create an instance of the IMDb class
 ia = IMDb()
@@ -96,7 +98,6 @@ def movieRec():
         movieName = filmCol[int(index)]
         
         recommend =  recommendation_movie1(movieName)
-        # print(recommend,"\n\n\n")
         
         title=list(recommend.index)
         rating=recommend.tolist()
@@ -113,10 +114,6 @@ def movieRec():
 
         imageUrl,castDetail = imageDesc(title)
 
-        # imageUrl = "https://m.media-amazon.com/images/M/MV5BMjJlMjJlMzYtNmU5Yy00N2MwLWJmMjEtNWUwZWIyMGViZDgyXkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SY150_CR0, 0, 101, 150_.jpg"
-        # print(imageUrl,"\n",castDetail)
-        # print(title," ",year," ",rating)
-        # return render_template('movieResult.html',title=title,rating=rating,year = year,movie=movieName,lenFilm=len(title),imageUrl = imageUrl,castDetail=castDetail)
         return render_template('movieResult.html',title=title,rating=rating,year = year,movie=movieName,lenFilm=len(title),imageUrl = imageUrl, castDetail=castDetail)
 
     return render_template('movieRecommend.html',filmList = filmList ,lenFilm=len(filmList))
